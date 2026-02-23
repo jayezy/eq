@@ -493,16 +493,16 @@ export default function Home() {
               Assessment
             </a>
             <a
-              href="#features"
+              href="/eibook"
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
-              Features
+              The Book
             </a>
             <a
               href="#books"
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
-              Books
+              Reading List
             </a>
             <a
               href="#cta"
