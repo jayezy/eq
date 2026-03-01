@@ -47,89 +47,6 @@ const quotes = [
   },
 ];
 
-const books = [
-  {
-    title: "Emotional Intelligence",
-    author: "Daniel Goleman",
-    year: "1995",
-    description:
-      "The groundbreaking book that introduced EQ to the mainstream and redefined what it means to be smart.",
-    color: "from-indigo-500 to-purple-600",
-  },
-  {
-    title: "Emotional Intelligence 2.0",
-    author: "Travis Bradberry & Jean Greaves",
-    year: "2009",
-    description:
-      "A practical guide with strategies to increase your EQ, featuring an online assessment.",
-    color: "from-emerald-500 to-teal-600",
-  },
-  {
-    title: "Working with Emotional Intelligence",
-    author: "Daniel Goleman",
-    year: "1998",
-    description:
-      "How emotional intelligence drives workplace success, leadership, and career achievement.",
-    color: "from-amber-500 to-orange-600",
-  },
-  {
-    title: "The Language of Emotions",
-    author: "Karla McLaren",
-    year: "2010",
-    description:
-      "A revolutionary approach to understanding what your emotions are trying to tell you.",
-    color: "from-rose-500 to-pink-600",
-  },
-  {
-    title: "Permission to Feel",
-    author: "Marc Brackett",
-    year: "2019",
-    description:
-      "Yale professor reveals the power of emotional intelligence to transform our lives.",
-    color: "from-cyan-500 to-blue-600",
-  },
-  {
-    title: "Primal Leadership",
-    author: "Daniel Goleman, Richard Boyatzis & Annie McKee",
-    year: "2002",
-    description:
-      "How emotional intelligence shapes great leadership and creates resonant organizations.",
-    color: "from-violet-500 to-purple-600",
-  },
-  {
-    title: "The EQ Edge",
-    author: "Steven J. Stein & Howard E. Book",
-    year: "2011",
-    description:
-      "Practical insights on using emotional intelligence for success in work and life.",
-    color: "from-fuchsia-500 to-pink-600",
-  },
-  {
-    title: "Social Intelligence",
-    author: "Daniel Goleman",
-    year: "2006",
-    description:
-      "The science of human relationships and how our brains are wired for connection.",
-    color: "from-sky-500 to-indigo-600",
-  },
-  {
-    title: "Nonviolent Communication",
-    author: "Marshall B. Rosenberg",
-    year: "1999",
-    description:
-      "A powerful framework for compassionate communication and resolving conflicts peacefully.",
-    color: "from-lime-500 to-green-600",
-  },
-  {
-    title: "Daring Greatly",
-    author: "Brené Brown",
-    year: "2012",
-    description:
-      "How vulnerability and emotional courage transform the way we live, love, and lead.",
-    color: "from-orange-500 to-red-600",
-  },
-];
-
 const emotionTypes = {
   self_aware: {
     name: "The Introspector",
@@ -499,10 +416,10 @@ export default function Home() {
               The Book
             </a>
             <a
-              href="#books"
+              href="/bookshelf"
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
-              Reading List
+              Bookshelf
             </a>
             <a
               href="#cta"
@@ -721,7 +638,7 @@ export default function Home() {
                         Retake Assessment
                       </button>
                       <a
-                        href="#books"
+                        href="/bookshelf"
                         className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all"
                       >
                         Explore Books
@@ -899,71 +816,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Books Section */}
+      {/* Bookshelf Teaser */}
       <section id="books" className="py-32 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
             transition={{ duration: 0.8 }}
-            className="text-center mb-20"
           >
-            <span className="text-xs font-medium tracking-widest uppercase text-indigo-400 mb-4 block">
-              Essential Reading
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extralight mb-6">
-              Top 10 EI Books
-            </h2>
-            <p className="text-white/50 max-w-xl mx-auto font-light">
-              The most influential books on emotional intelligence to deepen
-              your understanding and transform your life.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 gap-6"
-          >
-            {books.map((book, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-                transition={{ duration: 0.6 }}
-                className="group relative overflow-hidden rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-all duration-500"
-              >
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${book.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
-                />
-                <div className="relative p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1 pr-4">
-                      <div className="flex items-center gap-3 mb-1">
-                        <span className="text-xs text-white/30 font-mono">
-                          #{String(index + 1).padStart(2, "0")}
-                        </span>
-                        <h3 className="text-xl font-light text-white/90">
-                          {book.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-white/40">
-                        {book.author} · {book.year}
-                      </p>
-                    </div>
-                    <div
-                      className={`w-12 h-16 rounded bg-gradient-to-br ${book.color} opacity-80 flex-shrink-0`}
-                    />
-                  </div>
-                  <p className="text-white/50 font-light leading-relaxed">
-                    {book.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-500/10 via-teal-500/10 to-cyan-500/10 border border-white/10 p-12 md:p-16 text-center">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
+              <div className="relative">
+                <span className="inline-block px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-emerald-400 border border-emerald-400/30 rounded-full mb-8">
+                  My Reading Journey
+                </span>
+                <h2 className="text-3xl md:text-5xl font-extralight mb-6">
+                  19 Books. Countless Lessons.
+                </h2>
+                <p className="text-lg text-white/50 max-w-xl mx-auto mb-10 font-light">
+                  Patterns noticed, beliefs challenged, and behaviors adopted
+                  from every book on the shelf.
+                </p>
+                <a
+                  href="/bookshelf"
+                  className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full font-medium transition-all hover:shadow-lg hover:shadow-emerald-500/25"
+                >
+                  Explore My Learnings →
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
